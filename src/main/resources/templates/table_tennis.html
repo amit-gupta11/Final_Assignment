@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Tennis</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link th:href="@{/css/nav.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/style.js}"></script>
+</head>
+<body>
+<section class="navigation">
+    <div class="nav-container">
+        <div class="brand">
+            <a th:href="@{/}"><img src="/pictures/ScoreBoard-logos_white.png" width="10%" height="10%" >
+            </a>
+        </div>
+        <nav>
+            <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+            <ul class="nav-list">
+                <li>
+                    <a th:href="@{/}">Home</a>
+                </li>
+                <li>
+                    <a th:href="@{/aboutUs}">About</a>
+                </li>
+                <li>
+                    <a href="#!">Games</a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a th:href="@{/tableTennis}">Table Tennis</a>
+                        </li>
+                        <li>
+                            <a href="#!">Chess</a>
+                        </li>
+                        <li>
+                            <a href="#!">Darts</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#!">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<div class="container-fluid">
+    <div class="row">
+        <div class="column" th:style="'background: url(/pictures/bg.jpg) no-repeat center center fixed;width: 50%;'">
+            <h2 align="center" style="color:#262626">Team Form</h2>
+            <p align="center" style="color:#262626">Register your Team</p>
+            <a th:href="@{/addTeamForTableTennis}"> <button class="btn btn-info col-2">SignUp</button></a>
+        </div>
+        <div class="column" th:style="'background: url(/pictures/bg.jpg) no-repeat center center fixed;width: 50%;'">
+            <h2 align="center" style="color:#262626">Score Board</h2>
+            <p align="center" style="color:#262626">Score Keeper For Your Match</p>
+            <a th:href="@{/}"> <button class="btn btn-info col-2">ScoreBoard</button></a>
+        </div>
+        <div class="column" th:style="'background: url(/pictures/bg.jpg) no-repeat center center fixed;width: 50%;'">
+            <h2 align="center" style="color:#262626">Full Match History</h2>
+            <p align="center" style="color:#262626">Previous Matches Records</p>
+            <a th:href="@{/}"> <button class="btn btn-info col-2">Full History</button></a>
+        </div>
+        <div class="column" th:style="'background: url(/pictures/bg.jpg) no-repeat center center fixed;width: 50%;'">
+            <h2 align="center" style="color:#262626">Scores Per Player</h2>
+            <p align="center" style="color:#262626">Player Matches Records</p>
+            <a th:href="@{/}"> <button class="btn btn-info col-2">Player Scores</button></a>
+        </div>
+    </div>
+</div>
+<br>
+<div class="footer">© 2021 Copyright:<a class="text-white" href="https://lng-consultancy.com/"> L&G Consultancy</a></div>
+</body>
+</html>
