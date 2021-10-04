@@ -2,16 +2,14 @@ package com.lng.consultancy.scoresaver.controller;
 
 import com.lng.consultancy.scoresaver.model.PlayerData;
 import com.lng.consultancy.scoresaver.model.TeamData;
+import com.lng.consultancy.scoresaver.repository.PlayerDataRepository;
 import com.lng.consultancy.scoresaver.service.TableTennisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -32,11 +30,21 @@ public class TableTennisTeamController {
         return "about_us";
     }
 
+
+
     @GetMapping("/selectTeamTT")
     public String selectTeamTT(Model model){
         model.addAttribute("listTeam", tableTennisService.getAllTeam());
-        model.addAttribute("listPlayer", tableTennisService.getAllPlayer());
         return "select_team_tt";
+    }
+
+    @Autowired
+    PlayerDataRepository playerDataRepository;
+    @GetMapping("/getTeamByTeamId")
+    public @ResponseBody List<PlayerData> getPlayersByTeamId(@RequestParam(value="teamId") int teamId)
+    {
+        List<PlayerData> playerDataList = playerDataRepository.findPlayerDetailByTeamId(teamId);
+        return playerDataList;
     }
 
     @GetMapping("/tableTennis")

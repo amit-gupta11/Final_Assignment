@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +58,6 @@ public class TableTennisServiceImpl implements TableTennisService {
     public List<TeamData> getAllTeam() {
 
         return teamDataRepository.findAll();
-    }
-
-    @Override
-    public List<PlayerData> getAllPlayer() {
-        return playerDataRepository.findAll();
     }
 
 }

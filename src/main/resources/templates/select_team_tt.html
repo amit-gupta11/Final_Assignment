@@ -22,39 +22,38 @@
     <div class="container" th:style="'background: url(/pictures/bg.jpg) no-repeat center center fixed;width: 50%;'">
         <form th:action="@{/selectTeamTT}" th:object="${teamData}" method="Get">
    <label class="form-label">Select Team A</label>
-            <select class="form-select">
+            <select class="form-select" id="team1">
                 <option selected>Choose One Team</option>
             <option th:each="teamData :${listTeam}"
                     th:value="${teamData.id}"
                     th:text="${teamData.teamName}"></option>
             </select>
             <hr>
-   <label class="form-label">Select Team B</label>
-    <select class="form-select">
-        <option selected>Choose One Team</option>
-        <option th:each="teamData :${listTeam}"
-                th:value="${teamData.id}"
-                th:text="${teamData.teamName}"></option>
-    </select>
-            <hr>
+
             <label class="form-label">Select Player A</label>
-            <select class="form-select">
+            <select class="form-select" id="player1">
                 <option selected>Choose One Player</option>
-                <option th:each="playerData :${listPlayer}"
-                        th:value="${playerData.id}"
-                        th:text="${playerData.playerName}"></option>
+
+            </select>
+            <hr>
+            <label class="form-label">Select Team B</label>
+            <select class="form-select" id="team2">
+                <option selected>Choose One Team</option>
+                <option th:each="teamData :${listTeam}"
+                        th:value="${teamData.id}"
+                        th:text="${teamData.teamName}"></option>
             </select>
             <hr>
             <label class="form-label">Select Player B</label>
-            <select class="form-select">
+            <select class="form-select" id="player2">
                 <option selected>Choose One Player</option>
-                <option th:each="playerData :${listPlayer}"
-                        th:value="${playerData.id}"
-                        th:text="${playerData.playerName}"></option>
+
             </select>
         </form>
     </div>
 
 <div class="footer">© 2021 Copyright:<a class="text-white" href="https://lng-consultancy.com/"> L&G Consultancy</a></div>
 </body>
+<script type="text/javascript" th:src="@{/js/select_player_tt.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 </html>

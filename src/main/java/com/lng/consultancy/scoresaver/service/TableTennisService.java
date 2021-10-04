@@ -12,5 +12,4 @@ public interface TableTennisService {
     TeamData getTeamById(int id);
     Page<TeamData> findPaginated(int pageNo, int pageSize);
     List<TeamData> getAllTeam();
-    List<PlayerData> getAllPlayer();
 }
