@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link th:href="@{/css/tictactoe.css}" rel="stylesheet" />
+    <link th:href="@{/css/nav.css}" rel="stylesheet" />
+</head>
+<body>
+<section class="navigation">
+    <div class="nav-container">
+        <div class="brand">
+            <a th:href="@{/}"><img src="/pictures/ScoreBoard-logos_white.png" width="10%" height="10%" >
+            </a>
+        </div>
+    </div>
+</section>
+
+<div id="head">
+    <h1>Tic-Tac-Toe</h1>
+    <input name="player" id="r1" type="radio" value="X" checked><label for="r1"> X </label>
+    <input name="player" id="r2" type="radio" value="O"><label for="r2"> O </label>
+    <br>
+    <input name="opponent" id="o1" type="radio" value="computer" checked> <label for="o1"> Play with Computer </label>
+    <input name="opponent" id="o2" type="radio" value="friend"><label for="o2"> Play with friend's</label>
+    <br><br>
+</div>
+
+<table cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td id="cell1"></td>
+        <td id="cell2" class="vertical"></td>
+        <td id="cell3"></td>
+    </tr>
+    <tr>
+        <td id="cell4" class="horizontal"></td>
+        <td id="cell5" class="vertical horizontal"></td>
+        <td id="cell6" class="horizontal"></td>
+    </tr>
+    <td id="cell7"></td>
+    <td id="cell8" class="vertical"></td>
+    <td id="cell9"></td>
+    </tr>
+    </tbody>
+</table>
+<div id="new">
+    <button class="btn btn-dark" id="reset">Play a new Game?</button>
+    <a th:href="@{/}" style="color:#5CDB95; text-decoration:none;"> <button class="btn btn-dark">Home</button></a>
+</div>
+<script type="text/javascript" th:src="@{/js/tictactoe.js}"></script>
+</body>
+</html>

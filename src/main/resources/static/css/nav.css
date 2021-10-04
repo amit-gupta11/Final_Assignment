@@ -1,9 +1,12 @@
 body{
 background : #5CDB95;
 }
- .carousel-inner img {
+  .responsive {
     width: 100%;
-    height: 100%;
+    height: auto;
+      display: flex;
+    margin-left: auto;
+    margin-right: auto;
   }
 .navigation {
 	 height: 60px;
@@ -100,7 +103,7 @@ opacity: 0.5;
 	}
 	 nav {
 		 width: 100%;
-		 padding: 60px 0 15px;
+		 padding: 60px 0 0px;
 	}
 	 nav ul {
 		 display: none;
@@ -160,11 +163,7 @@ opacity: 0.5;
  #nav-toggle.active span:after {
 	 transform: rotate(-45deg);
 }
- article {
-	 max-width: 1000px;
-	 margin: 0 auto;
-	 padding: 10px;
-}
+
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }

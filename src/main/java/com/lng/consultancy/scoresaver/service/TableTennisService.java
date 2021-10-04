@@ -7,8 +7,10 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 public interface TableTennisService {
-   void saveTableTennisTeam(TeamData teamData);
-   void saveTableTennisPlayer(PlayerData playerData);
+     void saveTableTennisTeam(TeamData teamData);
+     void saveTableTennisPlayer(PlayerData playerData);
     TeamData getTeamById(int id);
-   Page<TeamData> findPaginated(int pageNo, int pageSize);
+    Page<TeamData> findPaginated(int pageNo, int pageSize);
+    List<TeamData> getAllTeam();
+    List<PlayerData> getAllPlayer();
 }

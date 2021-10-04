@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +51,17 @@ public class TableTennisServiceImpl implements TableTennisService {
     public Page<TeamData> findPaginated(int pageNo, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return this.teamDataRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<TeamData> getAllTeam() {
+
+        return teamDataRepository.findAll();
+    }
+
+    @Override
+    public List<PlayerData> getAllPlayer() {
+        return playerDataRepository.findAll();
     }
 
 }

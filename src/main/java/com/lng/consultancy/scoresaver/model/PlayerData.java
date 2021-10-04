@@ -1,6 +1,7 @@
 package com.lng.consultancy.scoresaver.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "players")
@@ -13,6 +14,7 @@ public class PlayerData {
     @Column(name = "team_id")
     private int teamId;
 
+    @Size(min = 4,max = 24)
     @Column(name = "player_name")
     private String playerName;
 

@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link th:href="@{/css/nav.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/style.js}"></script>
 </head>
 <body>
@@ -20,48 +21,49 @@
         </div>
     </div>
 </section>
-<div class="container my-2">
+<div class="container my-4">
     <table border="1" class="table table-striped table-responsive-md">
         <thead>
         <tr>
             <th>Team ID</th>
             <th>Team Name</th>
-            <th> Actions </th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="teamData:${teamDataList}">
             <td th:text="${teamData.id}"></td>
             <td th:text="${teamData.teamName}"></td>
-            <td> <a th:href="@{/teamId/{id}(id=${teamData.id})}" class="btn btn-primary">Add Player</a></td>
-
+            <td> <a th:href="@{/teamId/{id}(id=${teamData.id})}" class="btn btn-dark">Add Player</a></td>
         </tr>
         </tbody>
     </table>
 
     <div th:if="${totalPages > 1}">
         <div class="row col-sm-10">
-            <div class="col-sm-2">
-                Total Rows: [[${totalItems}]]
+            <div class="col-sm-4">
+                Total Teams: [[${totalItems}]]
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                     <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-      <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
+      <a style="color:#262626;" th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
       <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
                     </span>
             </div>
             <div class="col-sm-1">
-                <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}}">Next</a>
+                <a style="color:#262626;" th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}}">Next</a>
                 <span th:unless="${currentPage < totalPages}">Next</span>
             </div>
-
+            <br>
             <div class="col-sm-1">
-                <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}}">Last</a>
+                <a style="color:#262626;" th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}}">Last</a>
                 <span th:unless="${currentPage < totalPages}">Last</span>
             </div>
         </div>
     </div>
 </div>
+<br>
+<a th:href="@{/}" style="color:#5CDB95; text-decoration:none;"><p style="text-align:center; background:#262626;">Return To HomePage</p></a>
 <div class="footer">© 2021 Copyright:<a class="text-white" href="https://lng-consultancy.com/"> L&G Consultancy</a></div>
 </body>
 </html>

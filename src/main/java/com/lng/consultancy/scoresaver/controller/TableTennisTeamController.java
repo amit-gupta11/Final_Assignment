@@ -32,6 +32,13 @@ public class TableTennisTeamController {
         return "about_us";
     }
 
+    @GetMapping("/selectTeamTT")
+    public String selectTeamTT(Model model){
+        model.addAttribute("listTeam", tableTennisService.getAllTeam());
+        model.addAttribute("listPlayer", tableTennisService.getAllPlayer());
+        return "select_team_tt";
+    }
+
     @GetMapping("/tableTennis")
     public String tableTennis(Model model){
         return "table_tennis";
@@ -69,9 +76,16 @@ public class TableTennisTeamController {
     }
 
     @PostMapping("/saveTableTennisPlayer")
-    public String saveTableTennisPlayer(@ModelAttribute("playerData") PlayerData playerData) {
-        tableTennisService.saveTableTennisPlayer(playerData);
-        return "redirect:/tableTennis";
+    public String saveTableTennisPlayer(@Valid @ModelAttribute("playerData") PlayerData playerData , BindingResult bindingResult) {
+
+        if(bindingResult.hasErrors()){
+            return  "add_player_tt";
+        }
+        else{
+            tableTennisService.saveTableTennisPlayer(playerData);
+            return "redirect:/tableTennis";
+        }
+
     }
 
     @GetMapping("/page/{pageNo}")
@@ -85,7 +99,5 @@ public class TableTennisTeamController {
         model.addAttribute("teamDataList", teamDataList);
         return "team_list";
     }
-
-
 
 }

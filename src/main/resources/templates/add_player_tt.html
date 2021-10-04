@@ -31,10 +31,14 @@
         <div class="form-outline mb-4">
             <label class="form-label"> Player Name</label>
             <input type="text" th:field="*{playerName}"  placeholder="Player Name" class="form-control" />
+            <span th:if="${#fields.hasErrors('playerName')}" th:errors="*{playerName}">
+                Please Enter a Valid Name
+                Between 4 and 24 Character
+            </span>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Save Player</button>
         <hr>
-        <a th:href="@{/}"><p>Return To HomePage</p></a>
+        <a th:href="@{/}" style="color:#5CDB95; text-decoration:none;"><p style="text-align:center; background:#262626;">Return To HomePage</p></a>
     </form>
 </div>
 

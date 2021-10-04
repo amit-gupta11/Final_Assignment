@@ -24,7 +24,7 @@
     <form action="#" th:action="@{/saveTableTennisTeam}" th:object="${teamData}" method="POST">
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <label class="form-label"> Team Name</label>
+            <label class="form-label">Team Name</label>
             <input type="text" th:field="*{teamName}"  placeholder="Team Name" class="form-control" />
             <span th:if="${#fields.hasErrors('teamName')}" th:errors="*{teamName}">
                 Please Enter a Valid Name
@@ -33,7 +33,8 @@
         </div>
         <button type="submit" class="btn btn-primary btn-block">Save Team</button>
         <hr>
-        <a th:href="@{/teamList}"><p> Add Players In Existing Team</p></a>
+        <a th:href="@{/teamList}" style="color:#5CDB95; text-decoration:none;"  ><p style="text-align:center;background:#262626;"> Add Players In Existing Team</p></a>
+        <a th:href="@{/}" style="color:#5CDB95; text-decoration:none;"><p style="text-align:center; background:#262626;">Return To HomePage</p></a>
     </form>
 </div>
 
